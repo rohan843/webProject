@@ -13,4 +13,4 @@ use <i>sans-serif</i> everywhere... there's not much variation. All headings sho
 The main theme will be dark. #181D23 will be mainly used as background. #ffffff for headings and text. #F76D4E, #5B4DFB for buttons. Only see the layout from abv. designs... use colors similar to these ones.
 
 # API
-http://www.omdbapi.com/ this api seems useful for obtaining data.
+http://www.omdbapi.com/ this api seems useful for obtaining data. This <em><strong>DOES NOT</strong></em> support search by genre. Some workaround or another api will be needed for that. Once movie titles are obtained, the omdbapi can retrieve the particular movie details.
