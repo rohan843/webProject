@@ -1,4 +1,4 @@
-# Design Ideas
+# Design Ideas (add more here in resp. fields, after a comma)
 <ul>
   <li><b>Main page</b> - https://dribbble.com/shots/5593266-Movify-Movies-TV-Shows-Template</li>
   <li><b>Sign in page</b> - https://dribbble.com/shots/6321859-Sign-Up/attachments/6321859-Sign-Up?mode=media</li>
