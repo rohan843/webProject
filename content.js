@@ -1,6 +1,9 @@
 //selecting the search form
 const searchForm = document.querySelector('#searchForm');
 
+//selecting the div to display search results
+const searchDiv = document.querySelector('#searchdiv');
+
 //Handles errors if search goes wrong
 function searchErrorHandler(e) {
     console.log('A search error occurred', e);
@@ -26,6 +29,7 @@ async function displayOnMainDisplayAreaBy(query, queryType = 'id') {
     try {
         const res = await getResultsBy(queryType, query, false);
         //TODO: display the content of res on a main display
+        console.log(res);
     } catch (e) {
         displayErrorHandler(e);
     }
@@ -51,11 +55,52 @@ searchForm.addEventListener('submit', async function (e) {
         } else if (results.status === 'empty') {
             handleNullSearch();
         } else if (results.status === 'fine') {
-            //TODO: implement displaying of search results, add a click listener to each search item, to display its specific contents via id - based search on api
-            //debugging - displays the titles of searched movies
-            for (res of results.res) {
+            //displays the titles of searched movies in the list
+            for (let i = 0; i < results.res.length; i++) {
+                let res = results.res[i];
                 console.dir(res);
+                const topLevelDiv = document.createElement('div');
+                const imageSpan = document.createElement('span');
+                const image = document.createElement('img');
+                const contentDiv = document.createElement('div');
+                const headSpan = document.createElement('span');
+                const head = document.createElement('h2');
+                const typeSpan = document.createElement('span');
+
+                topLevelDiv.style.paddingBottom = "0.5em";
+                imageSpan.style.display = "inline-block";
+                imageSpan.style.fontSize = "4rem";
+                imageSpan.style.height = "6rem";
+                image.style.height = "1.5em";
+                image.style.width = "1em";
+                image.src = res.Poster;
+                contentDiv.style.display = "inline-block";
+                contentDiv.style.marginLeft = "0.5rem";
+                headSpan.style.display = "block";
+                if (res.Title.length <= 24)
+                    head.innerHTML = res.Title;
+                else
+                    head.innerHTML = res.Title.slice(0, 23) + '...';
+                head.style.fontSize = "1.5rem";
+                typeSpan.style.display = "block";
+                typeSpan.innerHTML = res.Type;
+                typeSpan.style.fontSize = "0.6rem";
+                typeSpan.style.color = "rgba(255, 255, 255, 0.33)";
+
+                topLevelDiv.append(imageSpan);
+                topLevelDiv.append(contentDiv);
+                imageSpan.append(image);
+                contentDiv.append(headSpan);
+                contentDiv.append(typeSpan);
+                headSpan.append(head);
+
+                topLevelDiv.addEventListener('click', async function () {
+                    await displayOnMainDisplayAreaBy(res.imdbID);
+                });
+
+                searchDiv.append(topLevelDiv);
             }
+            searchDiv.style.visibility = 'visible';
         } else {
             throw 'Invalid status code';
         }
