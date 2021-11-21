@@ -36,6 +36,35 @@ body {
     transition: all 0.5s ease-in-out;
 }
 
+.searchformdiv
+{
+    position: relative;
+}
+
+.searchformdiv a{
+    color:white;
+    text-decoration: none;
+}
+
+#searchdiv
+{
+    height: 0rem;
+    width: 0rem;
+    overflow: hidden;
+}
+
+#searchdiv:target
+{
+    height: 20em;
+    width:14.2rem;
+    position: absolute;
+    color: black;
+    background-color: white;
+    border:1px solid white;
+    z-index: 3;
+    overflow: scroll;
+}
+
 .heading {
     color: white;
 }
