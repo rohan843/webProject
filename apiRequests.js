@@ -5,6 +5,8 @@ function errorHandler(errorString, e) {
         console.log('An error occurred while getting the movie with given id', e);
     } else if (errorString.toLowerCase() === 'getbytitle') {
         console.log('An error occurred while getting the movie with given title', e);
+    } else if (errorString === 'searchtype') {
+        console.log('Wrong search type given');
     } else {
         console.log('An error occurred. That\'s all we know', e);
     }
@@ -26,6 +28,47 @@ async function getResultsBySearch(query) {
         return {
             status: "error",
             res: [],
+        };
+    }
+}
+
+//accepts a query, which can be IMDb id or movie title, searchType can be either 'id' or 'title'
+//make shortPlot false for full plot, returns an object with a status string and the search result
+async function getResultsBy(searchType, query, shortPlot = true) {
+    if (searchType == 'id') {
+        const url = `http://www.omdbapi.com/?apikey=642ed49d&i=${query}&plot=${shortPlot.toString()}`;
+        try {
+            const result = await axios.get(url);
+            if (result.data.Response === 'False') {
+                throw result.data.Error;
+            }
+            result.data.status = 'fine';
+            return result.data;
+        } catch (e) {
+            errorHandler('getbyid', e);
+            return {
+                status: 'error',
+            };
+        }
+    } else if (searchType == 'title') {
+        const url = `http://www.omdbapi.com/?apikey=642ed49d&t=${query}&plot=${shortPlot.toString()}`;
+        try {
+            const result = await axios.get(url);
+            if (result.data.Response === 'False') {
+                throw result.data.Error;
+            }
+            result.data.status = 'fine';
+            return result.data;
+        } catch (e) {
+            errorHandler('getbytitle', e);
+            return {
+                status: 'error',
+            };
+        }
+    } else {
+        errorHandler('searchtype');
+        return {
+            status: 'error',
         };
     }
 }
