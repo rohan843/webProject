@@ -1,3 +1,7 @@
+//this is very important for reasons known only to the browser
+if (window.location.href.slice(window.location.href.length - 3) !== 'div')
+    window.location.replace(window.location.href + "?#searchdiv");
+
 //selecting the search form
 const searchForm = document.querySelector('#searchForm');
 
@@ -6,6 +10,7 @@ const searchDiv = document.querySelector('#searchdiv');
 
 window.addEventListener('click', function () {
     searchDiv.style.visibility = "hidden";
+    searchDiv.innerHTML = '';
 })
 
 //Handles errors if search goes wrong
@@ -20,7 +25,10 @@ function displayErrorHandler(e) {
 
 //Handles the case when search query returns no result
 function handleNullSearch() {
-    //TODO: implement function 
+    searchForm.elements.userQuery.placeholder = 'No content...';
+    setTimeout(function () {
+        searchForm.elements.userQuery.placeholder = 'Search';
+    }, 2500);
     console.log('No titles found');
 }
 
@@ -105,7 +113,8 @@ searchForm.addEventListener('submit', async function (e) {
 
                 topLevelDiv.addEventListener('click', async function () {
                     await displayOnMainDisplayAreaBy(res.imdbID);
-                    searchDiv.style.visibility = 'hidden'; //FIXME: may remove this line
+                    searchDiv.style.visibility = 'hidden';
+                    searchDiv.innerHTML = '';
                 });
 
                 searchDiv.append(topLevelDiv);
@@ -115,6 +124,7 @@ searchForm.addEventListener('submit', async function (e) {
             throw 'Invalid status code';
         }
     } catch (e) {
+        handleNullSearch();
         searchErrorHandler(e);
     }
 });

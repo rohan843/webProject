@@ -14,3 +14,6 @@ The main theme will be dark. #181D23 will be mainly used as background. #ffffff 
 
 # API
 http://www.omdbapi.com/ this api seems useful for obtaining data. This <em><strong>DOES NOT</strong></em> support search by genre. Some workaround or another api will be needed for that. Once movie titles are obtained, the omdbapi can retrieve the particular movie details.
+
+# Very Important Info
+always go to the content page using content.html?#searchdiv the #searchdiv is necessary (it is implemented by default on opening the page)
