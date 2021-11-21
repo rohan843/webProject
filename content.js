@@ -4,6 +4,10 @@ const searchForm = document.querySelector('#searchForm');
 //selecting the div to display search results
 const searchDiv = document.querySelector('#searchdiv');
 
+window.addEventListener('click', function () {
+    searchDiv.style.visibility = "hidden";
+})
+
 //Handles errors if search goes wrong
 function searchErrorHandler(e) {
     console.log('A search error occurred', e);
@@ -73,7 +77,10 @@ searchForm.addEventListener('submit', async function (e) {
                 imageSpan.style.height = "6rem";
                 image.style.height = "1.5em";
                 image.style.width = "1em";
-                image.src = res.Poster;
+                if (res.Poster == 'N/A')
+                    image.src = "https://images.pexels.com/photos/754194/pexels-photo-754194.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+                else
+                    image.src = res.Poster;
                 contentDiv.style.display = "inline-block";
                 contentDiv.style.marginLeft = "0.5rem";
                 headSpan.style.display = "block";
@@ -96,6 +103,7 @@ searchForm.addEventListener('submit', async function (e) {
 
                 topLevelDiv.addEventListener('click', async function () {
                     await displayOnMainDisplayAreaBy(res.imdbID);
+                    searchDiv.style.visibility = 'hidden'; //FIXME: may remove this line
                 });
 
                 searchDiv.append(topLevelDiv);
