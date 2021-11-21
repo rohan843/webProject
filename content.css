@@ -58,8 +58,8 @@ body {
     height: 20em;
     width:14.2rem;
     position: absolute;
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: #181D23;
     border:1px solid white;
     z-index: 3;
     overflow: scroll;
