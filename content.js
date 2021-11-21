@@ -1,3 +1,7 @@
+//this is very important for reasons known only to the browser
+if (window.location.href.slice(window.location.href.length - 3) !== 'div')
+    window.location.replace(window.location.href + "?#searchdiv");
+
 //selecting the search form
 const searchForm = document.querySelector('#searchForm');
 
@@ -22,7 +26,7 @@ function displayErrorHandler(e) {
 //Handles the case when search query returns no result
 function handleNullSearch() {
     searchForm.elements.userQuery.placeholder = 'No content...';
-    setTimeout(function() {
+    setTimeout(function () {
         searchForm.elements.userQuery.placeholder = 'Search';
     }, 2500);
     console.log('No titles found');
