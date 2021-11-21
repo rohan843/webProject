@@ -1,3 +1,15 @@
+#picturediv
+{
+    height: 30rem;
+    padding: 1rem;
+    margin: 1rem;
+    width:90%vw;
+    border: 2px solid white;
+    border-radius: 2em;
+    /* box-shadow: 0px 0px 20px 20px; */
+    box-shadow: 0px 0px 35px -8px rgba(207, 199, 199, 0.68);
+}
+
 body {
     font-family: sans-serif;
     margin     : 0;
