@@ -1,3 +1,6 @@
+body{
+    font-family: sans-serif;
+}
 .secondname
 {
 	margin-left: -33rem;
@@ -22,6 +25,7 @@
 {
 	transform: scale(1.2) translateY(8px);
 	transition: all 0.2s ease-in-out;
+    z-index: 5;
 }
 
 .smallimages2 img:hover
@@ -85,3 +89,5 @@
 .social-icons li a i:hover {
     box-shadow: 0px 0px 10px 10px rgba(230, 196, 196,0.3);
 }
+
+
