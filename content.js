@@ -71,6 +71,8 @@ searchForm.addEventListener('submit', async function (e) {
                 const head = document.createElement('h2');
                 const typeSpan = document.createElement('span');
 
+                topLevelDiv.style.cursor = "pointer";
+                topLevelDiv.classList.add('searchListClass1');
                 topLevelDiv.style.paddingBottom = "0.5em";
                 imageSpan.style.display = "inline-block";
                 imageSpan.style.fontSize = "4rem";
