@@ -7,6 +7,8 @@ function errorHandler(errorString, e) {
         console.log('An error occurred while getting the movie with given title', e);
     } else if (errorString === 'searchtype') {
         console.log('Wrong search type given');
+    } else if (errorString === 'noquery') {
+        console.log('no search query provided');
     } else {
         console.log('An error occurred. That\'s all we know', e);
     }
@@ -14,7 +16,7 @@ function errorHandler(errorString, e) {
 
 //accepts a search string, returns an object with a status string and the search results array
 async function getResultsBySearch(query) {
-    const url = `http://www.omdbapi.com/?apikey=642ed49d&s=${query}`;
+    const url = `http://www.omdbapi.com/?apikey=642ed49d&s=${encodeURIComponent(query)}`;
     try {
         const result = await axios.get(url);
         // console.dir(result);
@@ -35,8 +37,11 @@ async function getResultsBySearch(query) {
 //accepts a query, which can be IMDb id or movie title, searchType can be either 'id' or 'title'
 //make shortPlot false for full plot, returns an object with a status string and the search result
 async function getResultsBy(searchType, query, shortPlot = true) {
-    if (searchType == 'id') {
-        const url = `http://www.omdbapi.com/?apikey=642ed49d&i=${query}&plot=${shortPlot.toString()}`;
+    if (!query) {
+        errorHandler('noquery');
+    }
+    else if (searchType == 'id') {
+        const url = `http://www.omdbapi.com/?apikey=642ed49d&i=${encodeURIComponent(query)}&plot=${shortPlot.toString()}`;
         try {
             const result = await axios.get(url);
             if (result.data.Response === 'False') {
@@ -51,7 +56,7 @@ async function getResultsBy(searchType, query, shortPlot = true) {
             };
         }
     } else if (searchType == 'title') {
-        const url = `http://www.omdbapi.com/?apikey=642ed49d&t=${query}&plot=${shortPlot.toString()}`;
+        const url = `http://www.omdbapi.com/?apikey=642ed49d&t=${encodeURIComponent(query)}&plot=${shortPlot.toString()}`;
         try {
             const result = await axios.get(url);
             if (result.data.Response === 'False') {
