@@ -1,8 +1,18 @@
 const searchForm = document.querySelector('#searchForm');
 const signIn = document.querySelector('#signin');
 const getStarted = document.querySelector('#getstarted');
+const subscribe = document.querySelector('#subscribe');
 
 const myStorage = window.sessionStorage;
+
+subscribe.addEventListener('click', (e) => {
+    if (myStorage.getItem('un')) {
+        alert(`You are already subscribed, ${myStorage.getItem('un')}. Please have a nice day!`);
+    } else {
+        myStorage.setItem('welcome', 'true');
+        window.location.href = 'pricing.html';
+    }
+})
 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
