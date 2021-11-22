@@ -1,127 +1,197 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Home</title>
-         <meta charset="utf-8">
-        <script src="https://kit.fontawesome.com/69891a8400.js" crossorigin="anonymous"></script>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <script src="https://kit.fontawesome.com/69891a8400.js" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" type="text/css" href="content.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="content.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="apiRequests.js"></script>
 
 
-    </head>
-    <body>
-        <div class="container-fluid " style="background:#181D23; margin-bottom: 1rem; margin-top: 0.5rem;">
-            <div class="row p-1">
-                <div class="col-12">
-                    <nav class="navbar navbar-light bg-#181D23">
-                          <div class="container-fluid" style="margin-top: 0.5rem;">
-                            <a href="#" class="navbar-brand" style="color:#ffffff; font-family:sans-serif;"><h2 id="images-111">Home</h2></a>
-                            <a href="#heading" class="navbar-brand secondname" style="color:#ffffff; font-family: sans-serif;"><h2 id="images-111">Latest Releases</h2></a>
-                            <a href="#movies" class="navbar-brand thirdname" style="color:#ffffff; font-family:sans-serif;"><h2 id="images-111">Movies</h2></a>
-                            <!-- <a href="#sciences" class="navbar-brand fourthname" style="color:#ffffff; font-family:serif;"><h2 id="images-111">Science</h2></a>
+</head>
+
+<body>
+  <div class="container-fluid " style="background:#181D23; margin-bottom: 1rem; margin-top: 0.5rem;">
+    <div class="row p-1">
+      <div class="col-12">
+        <nav class="navbar navbar-light bg-#181D23">
+          <div class="container-fluid" style="margin-top: 0.5rem;">
+            <a href="#" class="navbar-brand" style="color:#ffffff; font-family:sans-serif;">
+              <h2 id="images-111">Home</h2>
+            </a>
+            <a href="#heading" class="navbar-brand secondname" style="color:#ffffff; font-family: sans-serif;">
+              <h2 id="images-111">Latest Releases</h2>
+            </a>
+            <a href="#movies" class="navbar-brand thirdname" style="color:#ffffff; font-family:sans-serif;">
+              <h2 id="images-111">Movies</h2>
+            </a>
+            <!-- <a href="#sciences" class="navbar-brand fourthname" style="color:#ffffff; font-family:serif;"><h2 id="images-111">Science</h2></a>
                             <a href="#channels" class="navbar-brand fifthname" style="color:#ffffff; font-family:serif;"><h2 id="images-111">Channels</h2></a> -->
-                            <form class="d-flex">
-                              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                              <button class="btn btn-outline-success me-5" type="submit" style="background-color: transparent !important">Search</button>
+            <div class="searchformdiv">
+              <form class="d-flex" id="searchForm">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                  name="userQuery">
+                <button class="btn btn-outline-success me-5" type="submit"
+                  style="background-color: transparent !important; margin-left: 1rem;">Search</button>
 
-                             
-                              <!-- <button class="btn btn-primary subscribe me-1" type="button">Subscribe</button>
+
+                <!-- <button class="btn btn-primary subscribe me-1" type="button">Subscribe</button>
                               <button class="btn btn-primary subscribe" style="background-color: transparent; border-color: transparent; font-weight: 600;" type="button">Login</button>
  -->
-                            </form>
-                              
+              </form>
+              <div id="searchdiv" style="visibility: hidden; width: 25.2rem; overflow-x: hidden;">
 
-                          </div>
-                          
-                        </nav>
-                </div>
-            </div>
-            <div class="row p-1">
-                <div class="col-12">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                              <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                              </div>
-                              <div class="carousel-inner">
-                                <div class="carousel-item active image-1" style="height: 30rem; padding: 1rem;">
-                                  <img src="https://webneel.net/file/images/11-16/8-xmen-movie-poster-design.jpg" height="100%"  class="d-block w-100" alt="...">
-                                  
-                                </div>
-                                <div class="carousel-item image-2" style="height: 30rem; padding: 1rem;">
-                                    <img src="https://scenesmedia.com/wp-content/uploads/2018/02/Black-Panther.jpg"height="100%" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item image-3" style="height: 30rem; padding:1rem;">
-                                  <img src="https://lumiere-a.akamaihd.net/v1/images/thor-r-emea-banner_52a30561.jpeg" class="d-block w-100 " height="100%" alt="...">
-                                </div>
-                              </div>
-                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                              </button>
-                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                              </button>
-                            </div>
-                </div>
+
+                <!-- <div id="topLevelDiv">
+                  <span id="imageSpan" style="display: inline-block; font-size: 4rem; height: 6rem;">
+                    
+                    <img id="image" style="height: 1.5em; width: 1em" src="https://m.media-amazon.com/images/M/MV5BMTQyOTM4MDMxN15BMl5BanBnXkFtZTcwODg5NTQzMw@@._V1_SX300.jpg" alt="" srcset="">
+                  </span>
+                  <div id="contentDiv" style="display: inline-block; margin-left: 0.5rem;">
+                    <span id="headSpan" style="display: block;">
+                      <h2 id="head">Content</h2>
+                    </span>
+                    <span id="typeSpan" style="display: block;">Word</span>
+                  </div>                  
+                </div> -->
+
+
+              </div>
             </div>
 
-            <div class="row p-2 mt-2">
-                <div class="col">
-                   <h2 class="heading" id="heading"> Latest and Trending</h2>
-                </div>
-            </div>
 
-            <div class="row">
-                <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"> -->
-                          <!-- <div class="carousel-inner" style="padding:1rem; margin-left: 5rem;">
+          </div>
+
+        </nav>
+      </div>
+    </div>
+    <div id="picturediv" style="display: flex;">  
+     <!-- display:flex -->
+      <span style="display: inline-block;"><img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/5763/1045763-v-1d9f41f00c89" style="height: 27rem;"></span>
+      <div style="display: flex; flex-direction:column; align-items: center; flex:1"><span style="display: flex; justify-content: center;"><h1 style="color: white; text-align: center;">Lorem Ipsum</h1></span>
+      <p style="color: white; padding: 1em; flex:1; display: flex; align-items: center; line-height: 2em;">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut quas id inventore fugit sequi eveniet nulla minus quos vero libero laboriosam voluptatibus ea, molestiae nobis reiciendis! Repellendus sapiente ipsam quo.
+        Id facere voluptas vero voluptatum at deleniti, inventore ut adipisci cupiditate nisi mollitia sunt dolore ipsam beatae similique quia ratione nihil pariatur culpa, error non sint. Obcaecati hic distinctio unde.
+        Veritatis deleniti ex recusandae id modi maxime dicta commodi incidunt porro velit nisi, eius cum officiis, illum aspernatur necessitatibus placeat corporis. Ut, vitae numquam eum praesentium natus sit? Distinctio, sint.
+        Nobis recusandae deserunt ad sint in rerum placeat, corrupti, provident, excepturi minima molestias nesciunt? Deleniti reiciendis excepturi quam voluptatibus quos dolorem, officia minima suscipit dolore aut, nemo nihil, expedita delectus.
+        Corrupti ipsum, unde reiciendis excepturi distinctio adipisci praesentium quas doloremque quaerat, placeat nihil iusto hic expedita accusamus ratione iste perspiciatis. Tempore, hic nisi. Eaque dolor voluptates laboriosam aliquid debitis dignissimos.
+      </p></div>
+    
+    </div>
+
+    <div class="row p-1">
+      <div class="col-12">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active image-1" style="height: 30rem; padding: 1rem;">
+              <img src="https://webneel.net/file/images/11-16/8-xmen-movie-poster-design.jpg" height="100%"
+                class="d-block w-100" alt="...">
+
+            </div>
+            <div class="carousel-item image-2" style="height: 30rem; padding: 1rem;">
+              <img src="https://scenesmedia.com/wp-content/uploads/2018/02/Black-Panther.jpg" height="100%"
+                class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item image-3" style="height: 30rem; padding:1rem;">
+              <img src="https://lumiere-a.akamaihd.net/v1/images/thor-r-emea-banner_52a30561.jpeg"
+                class="d-block w-100 " height="100%" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row p-2 mt-2">
+      <div class="col">
+        <h2 class="heading" id="heading"> Latest and Trending</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"> -->
+      <!-- <div class="carousel-inner" style="padding:1rem; margin-left: 5rem;">
                             <div class="carousel-item active smallimages" style="height: 17.5rem;"> -->
-                        
-                        <div class="col-2 smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2.75rem;">       
-                            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/6095/1056095-v-a17a08c530e4" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block"  alt="...">
-                        </div>
+
+      <div class="col-2 smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2.75rem;">
+        <img
+          src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/6095/1056095-v-a17a08c530e4"
+          height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" id="10083640"
+          alt="...">
+      </div>
 
 
-                        <div class="col-2 smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">       
-                                
-                          
-                             <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/5763/1045763-v-1d9f41f00c89" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="..." >
-                           
-                        </div>
+      <div class="col-2 smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">
 
-                        <div class="col-2 smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">       
-                        
-                             <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/9283/1079283-v-cfadfac1cce3" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
 
-                        </div>
+        <img
+          src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/5763/1045763-v-1d9f41f00c89"
+          height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" id="0062556"
+          alt="...">
 
-                        <div class="col-2 smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">       
+      </div>
 
-                             <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/4294/1074294-v-ef854a9ae0dc" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
-                        </div>
+      <div class="col-2 smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">
 
-                        <div class="col-2 smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">       
+        <img
+          src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/9283/1079283-v-cfadfac1cce3"
+          height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" id="13899566"
+          alt="...">
 
-                             <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/8857/1068857-v-d30bc5e504a4" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
-                        </div>
-<!-- 
+      </div>
+
+      <div class="col-2 smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">
+
+        <img
+          src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/4294/1074294-v-ef854a9ae0dc"
+          height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" id="11816092"
+          alt="...">
+      </div>
+
+      <div class="col-2 smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">
+
+        <img
+          src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/8857/1068857-v-d30bc5e504a4"
+          height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" id="13912632"
+          alt="...">
+      </div>
+      <!-- 
                              <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/2069/1062069-v-f34508e5a405" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
 
                              <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/9895/1059895-v-bc89231f8f01" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="..."> -->
 
-                             <!-- <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/6095/1056095-v-a17a08c530e4" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
+      <!-- <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/6095/1056095-v-a17a08c530e4" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
 
                              <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/2944/1052944-v-0ed37e31f3a3" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="..."> -->
-                            
-                            
 
-                            
-                            <!-- <div class="carousel-item smallimages" style="height: 17.5rem;">
+
+
+
+      <!-- <div class="carousel-item smallimages" style="height: 17.5rem;">
                               
 
                               <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/5472/1055472-v-4fac4c4e1978" height="80%" style="border-radius: 9%; margin-right: 0.8rem; margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
@@ -180,51 +250,62 @@
                             <span class="visually-hidden">Next</span>
                           </button>
                         </div> -->
-            </div>
+    </div>
 
-            <div class="row p-2">
-                <div class="col">
-                   <h2 class="heading" id="movies"> Movies Recommended For You</h2>
-                </div>
-            </div>
-
-
-            <div class="row">
-
-                <div class="col-2 smallimages smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2.75rem;">       
-                    <a href="#divbox"> <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/6536/846536-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem; margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
-
-                   </a>
-                </div>
+    <div class="row p-2">
+      <div class="col">
+        <h2 class="heading" id="movies"> Movies Recommended For You</h2>
+      </div>
+    </div>
 
 
-                <div class="col-2 smallimages smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">       
-                        
-                    <a href="#divbox"> 
-                        <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/896/580896-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
-                    </a>
-                </div>
+    <div class="row">
 
-                <div class="col-2 smallimages smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">       
-                
-                    <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/7676/647676-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
+      <div class="col-2 smallimages smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2.75rem;">
+        <a href="#divbox"> <img
+            src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/6536/846536-v"
+            height="80%" style="border-radius: 9%; margin-right: 0.8rem; margin-bottom: 0.8rem;" class="d-inline-block" id="8366590"
+            alt="...">
 
-                </div>
+        </a>
+      </div>
 
-                <div class="col-2 smallimages smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">       
 
-                    <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/1529/571529-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
-                </div>
+      <div class="col-2 smallimages smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">
 
-                <div class="col-2 smallimages smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">       
+        <a href="#divbox">
+          <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/896/580896-v"
+            height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" id="9052870"
+            alt="...">
+        </a>
+      </div>
 
-                    <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/3669/593669-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
-                </div>
-                <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="col-2 smallimages smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">
+
+        <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/7676/647676-v"
+          height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" id="8108274"
+          alt="...">
+
+      </div>
+
+      <div class="col-2 smallimages smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">
+
+        <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/1529/571529-v"
+          height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" id="9248972"
+          alt="...">
+      </div>
+
+      <div class="col-2 smallimages smallimages divboxing" style="height: 28rem; padding: 1rem; margin-left: 2rem;">
+
+        <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/3669/593669-v"
+          height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" id="7721946"
+          alt="...">
+      </div>
+      <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                       <div class="carousel-inner" style="padding: 1rem; margin-left: 5rem;">
                         <div class="carousel-item active smallimages" style="height: 17.5rem; ">
                            -->
-                     <!-- <div class="col smallimages" style="height: 30rem; padding: 1rem; margin-left: 1.7rem;">
+      <!-- <div class="col smallimages" style="height: 30rem; padding: 1rem; margin-left: 1.7rem;">
                           <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/6536/846536-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem; margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
 
                              <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/896/580896-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
@@ -238,17 +319,17 @@
 
                               -->
 
-                             <!-- <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/old_images/vertical/MOVIE/1777/1000071777/1000071777-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
+      <!-- <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/old_images/vertical/MOVIE/1777/1000071777/1000071777-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
 
                              <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/old_images/vertical/MOVIE/2789/1000212789/1000212789-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="..."> -->
 
-                            <!--  <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/133/1080133-v-4e48a10da8ed" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
+      <!--  <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/133/1080133-v-4e48a10da8ed" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
 
                              <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/old_images/vertical/MOVIE/3314/1770003314/1770003314-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem;margin-bottom: 0.8rem;" class="d-inline-block" alt="..."> -->
-                        <!-- </div> -->
+      <!-- </div> -->
 
 
-                        <!-- <div class="carousel-item smallimages" style="height: 17.5rem;">
+      <!-- <div class="carousel-item smallimages" style="height: 17.5rem;">
                            
 
                            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/old_images/vertical/MOVIE/7393/1000087393/1000087393-v" height="80%" style="border-radius: 9%; margin-right: 0.8rem; margin-bottom: 0.8rem;" class="d-inline-block" alt="...">
@@ -309,9 +390,9 @@
                       </button>
                     </div> -->
 
-            </div>
+    </div>
 
-            <!-- <div class="row p-2">
+    <!-- <div class="row p-2">
                 <div class="col">
                    <h2 class="heading" id="sciences"> Popular in Science</h2>
                 </div>
@@ -406,7 +487,7 @@
                 
             </div> -->
 
-             <!-- <div class="row p-2">
+    <!-- <div class="row p-2">
                 <div class="col">
                    <h2 class="heading" id="channels"> Popular Channels</h2>
                 </div>
@@ -521,7 +602,7 @@
             </div> -->
 
 
-             <!-- <div class="row p-2">
+    <!-- <div class="row p-2">
                 <div class="col">
                    <h1 class="heading" id="channels"> Frequently Asked Questions</h1>
                 </div>
@@ -546,36 +627,49 @@
             </div> -->
 
 
-            <div class="row p-2">
-                 <div class="col-6 m-2" style="color:white; margin-left:2rem; margin-top: 1rem;">
-                    <h3 id="images-111" style="margin-bottom:1.5rem">About us</h3>© 2021 STAR. All Rights Reserved. HBO, Home Box Office and all related channel and programming logos are service marks of, and all related programming visuals and elements are the property of, Home Box Office, Inc. All rights reserved.</div>
-                
-                <div class="col-4" style="margin-left: 6rem;" >
+    <div class="row p-2">
+      <div class="col-6 m-2" style="color:white; margin-left:2rem; margin-top: 1rem;">
+        <h3 id="images-111" style="margin-bottom:1.5rem">About us</h3>© 2021 STAR. All Rights Reserved. HBO, Home Box
+        Office and all related channel and programming logos are service marks of, and all related programming visuals
+        and elements are the property of, Home Box Office, Inc. All rights reserved.
+      </div>
 
-                    <div ><h3 id="images-111" style="color:white; text-align: center; margin-bottom: 3;">Connect with us</h3></div>
-                     <ul class="horizontal-list text-center social-icons" style="margin-top:2rem">
-                        <li><a href="https://in.linkedin.com" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                            </a>
-                        </li>
-                        
-                        <li ><a href=" https://stackoverflow.com"><i class="fab fa-stack-overflow"></i></a></li>
-                        <li ><a href="https://en.wikipedia.org/wiki/Google%2B"><i class="fab fa-google-plus-square"></i></a></li>
-                        <li ><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href=" https://www.quora.com"><i class="fab fa-quora"></i></a></li>
-                     </ul>
-                
-                    
-                </div>
-                
-            </div>
-            
-            
+      <div class="col-4" style="margin-left: 6rem;">
+
+        <div>
+          <h3 id="images-111" style="color:white; text-align: center; margin-bottom: 3;">Connect with us</h3>
         </div>
-        
+        <ul class="horizontal-list text-center social-icons" style="margin-top:2rem">
+          <li><a href="https://in.linkedin.com" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    </body>
+          <li><a href=" https://stackoverflow.com"><i class="fab fa-stack-overflow"></i></a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Google%2B"><i class="fab fa-google-plus-square"></i></a></li>
+          <li><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
+          <li><a href=" https://www.quora.com"><i class="fab fa-quora"></i></a></li>
+        </ul>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <script src="content.js"></script>
+</body>
+
 </html>
