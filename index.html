@@ -165,114 +165,120 @@
     <nav class="navbar">
         <ul>
             <li>Subscribe</li>
-            <li>Sign In</li>
+            <li id="signin">Sign In</li>
             <li>Home</li>
         </ul>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="form-inline" id="searchForm">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="userQuery">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav>
     <div class="container-fluid">
-    <div class="Startup">
-        <img src="netflix.jpg" class="image1">
-        <div class="row">
-        <button type="button" class="btn btn-outline-danger btn1">Get Started</button>
-    </div>
-    </div>
-
-    <div class="followup">
-        <img src="im2.jpg" class="image1">
-        <div class="text1">
-            <h1>Enjoy The Best Ever Content At A</h1>
-            <h1>Affordable Price ₹₹₹₹</h1>
-        </div>
-    </div>
-    <h1 style="text-align: center; color: #ffffff;">Latest Content At your disposal</h1>
-    <div class="feature row">
-        <img src="marvel1.jpg" class="img1" style="height: 400px; width: 500px; margin: 40px;">
-        <img src="starwars.jpg" class="img1" style="height: 400px; width: 500px; margin: 40px;">
-    </div>
-
-    <!-- FAQs -->
-    <h1 style="text-align: center;">FAQs</h1>
-    <div class="faqs">
-        <div class="btn-group" style="display: block; margin: 70px;">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                What i can watch Here?
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Netflix has an extensive library of feature films, documentaries, TV
-                    shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you
-                    want.</a>
+        <div class="Startup">
+            <img src="netflix.jpg" class="image1">
+            <div class="row">
+                <button type="button" class="btn btn-outline-danger btn1" id="getstarted">Get Started</button>
             </div>
         </div>
-        <div class="btn-group" style="display: block; margin: 70px;">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                What is Movie Overloaded?
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Netflix is a streaming service that offers a wide variety of
-                    award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected
-                    devices.<br>
 
-                    You can watch as much as you want, whenever you want, without a single ad – all for one low monthly
-                    price. <br>There's always something new to discover, and new TV shows and movies are added every
-                    week!</a>
+        <div class="followup">
+            <img src="im2.jpg" class="image1">
+            <div class="text1">
+                <h1>Enjoy The Best Ever Content At A</h1>
+                <h1>Affordable Price ₹₹₹₹</h1>
             </div>
         </div>
-        <div class="btn-group" style="display: block; margin: 70px;">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                How much it Costs?
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Watch Netflix on your smartphone, tablet, Smart TV, laptop, or
-                    streaming device, <br>all for one fixed monthly fee. Plans range from ₹ 199 to ₹ 799 a month. No
-                    extra
-                    costs, no contracts.</a>
+        <h1 style="text-align: center; color: #ffffff;">Latest Content At your disposal</h1>
+        <div class="feature row">
+            <img src="marvel1.jpg" class="img1" style="height: 400px; width: 500px; margin: 40px;">
+            <img src="starwars.jpg" class="img1" style="height: 400px; width: 500px; margin: 40px;">
+        </div>
+
+        <!-- FAQs -->
+        <h1 style="text-align: center;">FAQs</h1>
+        <div class="faqs">
+            <div class="btn-group" style="display: block; margin: 70px;">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    What i can watch Here?
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Netflix has an extensive library of feature films, documentaries,
+                        TV
+                        shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you
+                        want.</a>
+                </div>
             </div>
+            <div class="btn-group" style="display: block; margin: 70px;">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    What is Movie Overloaded?
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Netflix is a streaming service that offers a wide variety of
+                        award-winning TV shows, movies, anime, documentaries and more – on thousands of
+                        internet-connected
+                        devices.<br>
+
+                        You can watch as much as you want, whenever you want, without a single ad – all for one low
+                        monthly
+                        price. <br>There's always something new to discover, and new TV shows and movies are added every
+                        week!</a>
+                </div>
+            </div>
+            <div class="btn-group" style="display: block; margin: 70px;">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    How much it Costs?
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Watch Netflix on your smartphone, tablet, Smart TV, laptop, or
+                        streaming device, <br>all for one fixed monthly fee. Plans range from ₹ 199 to ₹ 799 a month. No
+                        extra
+                        costs, no contracts.</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer section starts -->
+        <div class="row p-2" style="background-color: rgb(22, 16, 16);">
+            <div class="col-6 m-2" style="color:white; margin-left:2rem;">
+                <h3 id="images-111">About us</h3>© 2021 STAR. All Rights Reserved. HBO, Home Box Office and all related
+                channel and programming logos are service marks of, and all related programming visuals and elements are
+                the
+                property of, Home Box Office, Inc. All rights reserved.
+            </div>
+
+            <div class="col-4" style="margin-left: 6rem;">
+
+                <div>
+                    <h3 id="images-111" style="color:white; text-align: center;">Connect with us</h3>
+                </div>
+                <ul class="horizontal-list text-center social-icons" style="margin-top:0.5rem">
+                    <li><a href="https://in.linkedin.com" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </li>
+
+                    <li><a href=" https://stackoverflow.com"><i class="fab fa-stack-overflow"></i></a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Google%2B"><i class="fab fa-google-plus-square"></i></a>
+                    </li>
+                    <li><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href=" https://www.quora.com"><i class="fab fa-quora"></i></a></li>
+                </ul>
+
+
+            </div>
+
         </div>
     </div>
-
-    <!-- footer section starts -->
-    <div class="row p-2" style="background-color: rgb(22, 16, 16);">
-        <div class="col-6 m-2" style="color:white; margin-left:2rem;">
-            <h3 id="images-111">About us</h3>© 2021 STAR. All Rights Reserved. HBO, Home Box Office and all related
-            channel and programming logos are service marks of, and all related programming visuals and elements are the
-            property of, Home Box Office, Inc. All rights reserved.
-        </div>
-
-        <div class="col-4" style="margin-left: 6rem;">
-
-            <div>
-                <h3 id="images-111" style="color:white; text-align: center;">Connect with us</h3>
-            </div>
-            <ul class="horizontal-list text-center social-icons" style="margin-top:0.5rem">
-                <li><a href="https://in.linkedin.com" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </li>
-
-                <li><a href=" https://stackoverflow.com"><i class="fab fa-stack-overflow"></i></a></li>
-                <li><a href="https://en.wikipedia.org/wiki/Google%2B"><i class="fab fa-google-plus-square"></i></a></li>
-                <li><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
-                <li><a href=" https://www.quora.com"><i class="fab fa-quora"></i></a></li>
-            </ul>
-
-
-        </div>
-
-    </div>
-</div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
+    <script src="mainPage.js"></script>
 </body>
 
 </html>

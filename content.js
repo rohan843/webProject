@@ -1,6 +1,16 @@
-//this is very important for reasons known only to the browser
 if (window.location.href.slice(window.location.href.length - 3) !== 'div')
     window.location.replace(window.location.href + "?#searchdiv");
+
+if (window.sessionStorage.getItem('searchQuery')) {
+    const origQuery = window.sessionStorage.getItem('searchQuery');
+    //TODO: display it in the flowing search result box
+}
+
+if (window.sessionStorage.getItem('welcome')) {
+    const un = window.sessionStorage.getItem('un');
+    alert(`Welcome, ${un}`);
+    window.sessionStorage.removeItem('welcome');
+}
 
 //selecting the search form
 const searchForm = document.querySelector('#searchForm');
