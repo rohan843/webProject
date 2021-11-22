@@ -10,7 +10,148 @@
         Main Page
     </title>
     <script src="https://kit.fontawesome.com/69891a8400.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #181D23;
+        }
+
+        .navbar {
+            background-color: #181D23;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar ul {
+            overflow: auto;
+            transform: translate(36%, 0%);
+        }
+
+        .navbar li {
+            cursor: pointer;
+            float: right;
+            /* margin: 15px 15px; */
+            padding: 10px 20px;
+            list-style: none;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .navbar li:hover {
+            background-color: #5B4DFB;
+        }
+
+        h1 {
+            text-shadow: 2px 1px blue;
+        }
+
+        .form-inline {
+            display: inline;
+            transform: translate(115%, 0%);
+        }
+
+        .image1 {
+            height: 500px;
+            width: 100%;
+            border-radius: 25px;
+            /* padding-left: 30px;
+        padding-right: 30px; */
+        }
+
+        img {
+            border-radius: 25px;
+        }
+
+        .btn1 {
+            background-color: #F76D4E;
+            font-weight: bolder;
+            color: #ffffff;
+            transform: translate(320%, -153%);
+            height: 60px;
+            width: 180px;
+        }
+
+        .btn1:after {
+            content: "";
+            display: block;
+            position: absolute;
+            border-radius: 4em;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 0.5s;
+            box-shadow: 0 0 10px 40px white;
+        }
+
+
+        .btn1:active:after {
+            box-shadow: 0 0 0 0 white;
+            position: absolute;
+            border-radius: 4em;
+            left: 0;
+            top: 0;
+            opacity: 1;
+            transition: 0s;
+        }
+
+        .btn1:active {
+            top: 1px;
+        }
+
+        .text1 {
+            display: inline-block;
+            transform: translate(75%, -228%);
+            color: #ffffff;
+            font-size: 3.5rem;
+        }
+
+        .feature {
+            display: flex;
+            justify-content: center;
+        }
+
+        .horizontal-list {
+            list-style: none;
+            padding-left: 0px;
+            margin: 0px;
+        }
+
+        .horizontal-list li {
+            display: inline-block;
+            margin: 0rem 2rem 1rem 1rem;
+            font-weight: 800;
+            font-size: 1.3rem;
+            padding: 0.2rem;
+
+        }
+
+
+        .horizontal-list li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .social-icons li a i {
+            width: 2rem;
+            padding: 4px;
+            border-radius: 50%;
+        }
+
+
+        .social-icons li a i:hover {
+            box-shadow: 0px 0px 10px 10px rgba(230, 196, 196, 0.3);
+        }
+
+        .faqs {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,10 +173,12 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav>
-
+    <div class="container-fluid">
     <div class="Startup">
         <img src="netflix.jpg" class="image1">
+        <div class="row">
         <button type="button" class="btn btn-outline-danger btn1">Get Started</button>
+    </div>
     </div>
 
     <div class="followup">
@@ -46,7 +189,7 @@
         </div>
     </div>
     <h1 style="text-align: center; color: #ffffff;">Latest Content At your disposal</h1>
-    <div class="feature">
+    <div class="feature row">
         <img src="marvel1.jpg" class="img1" style="height: 400px; width: 500px; margin: 40px;">
         <img src="starwars.jpg" class="img1" style="height: 400px; width: 500px; margin: 40px;">
     </div>
@@ -123,7 +266,7 @@
         </div>
 
     </div>
-
+</div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
