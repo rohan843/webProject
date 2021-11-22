@@ -44,7 +44,7 @@ async function displayOnMainDisplayAreaBy(query, queryType = 'id') {
     }
     try {
         const res = await getResultsBy(queryType, query, false);
-        
+
         pictureDiv.innerHTML = '';
 
         const span1 = document.createElement('span');
@@ -57,7 +57,7 @@ async function displayOnMainDisplayAreaBy(query, queryType = 'id') {
 
         span1.classList.add('span1');
         posterImg.classList.add('posterImg');
-        if(res.Poster === 'N/A')
+        if (res.Poster === 'N/A')
             posterImg.src = 'https://humanorigins.si.edu/sites/default/files/styles/slide_show/public/images/portrait/photoNotAvailable_p.jpg?itok=AbWtseeX';
         else posterImg.src = res.Poster;
         div1.classList.add('div1');
@@ -171,3 +171,13 @@ searchForm.addEventListener('submit', async function (e) {
     }
 });
 
+//displaying default titles
+const defaultIds = ['10083640', '0062556', '13899566', '11816092', '13912632', '8366590', '9052870', '8108274', '9248972', '7721946'];
+for (let id of defaultIds) {
+    const movImg = document.querySelector('#tt' + id);
+    movImg.classList.add('pointer');
+    movImg.addEventListener('click', function (e) {
+        displayOnMainDisplayAreaBy('tt' + id);
+        window.scrollTo(0, 0);
+    });
+}
