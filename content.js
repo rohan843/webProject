@@ -81,6 +81,7 @@ async function displaySearch(query) {
 if (window.sessionStorage.getItem('searchQuery')) {
     const query = window.sessionStorage.getItem('searchQuery');
     displaySearch(query);
+    window.sessionStorage.removeItem('searchQuery');
 }
 
 if (window.sessionStorage.getItem('welcome')) {
