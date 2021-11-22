@@ -8,6 +8,9 @@ const searchForm = document.querySelector('#searchForm');
 //selecting the div to display search results
 const searchDiv = document.querySelector('#searchdiv');
 
+//selecting the picture div to display the results
+const pictureDiv = document.querySelector('#picturediv');
+
 window.addEventListener('click', function () {
     searchDiv.style.visibility = "hidden";
     searchDiv.innerHTML = '';
@@ -40,7 +43,45 @@ async function displayOnMainDisplayAreaBy(query, queryType = 'id') {
     }
     try {
         const res = await getResultsBy(queryType, query, false);
-        //TODO: display the content of res on a main display
+        
+        pictureDiv.innerHTML = '';
+
+        const span1 = document.createElement('span');
+        const posterImg = document.createElement('img');
+        const div1 = document.createElement('div');
+        const span2 = document.createElement('span');
+        const title1 = document.createElement('h1');
+        const plotpara = document.createElement('p');
+        const close = document.createElement('span');
+
+        span1.classList.add('span1');
+        posterImg.classList.add('posterImg');
+        if(res.Poster === 'N/A')
+            posterImg.src = 'https://humanorigins.si.edu/sites/default/files/styles/slide_show/public/images/portrait/photoNotAvailable_p.jpg?itok=AbWtseeX';
+        else posterImg.src = res.Poster;
+        div1.classList.add('div1');
+        span2.classList.add('span2');
+        title1.classList.add('title1');
+        title1.innerHTML = res.Title;
+        plotpara.classList.add('plotpara');
+        plotpara.innerHTML = res.Plot;
+        close.classList.add('close');
+        close.innerHTML = 'close';
+
+        span1.append(posterImg);
+        div1.append(span2);
+        span2.append(title1);
+        div1.append(plotpara);
+        div1.append(close);
+        pictureDiv.append(span1);
+        pictureDiv.append(div1);
+
+        close.addEventListener('click', function (e) {
+            pictureDiv.innerHTML = '';
+            pictureDiv.style.display = 'none';
+        });
+
+        pictureDiv.style.display = "flex";
         console.log(res);
     } catch (e) {
         displayErrorHandler(e);
