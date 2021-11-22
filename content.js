@@ -1,9 +1,30 @@
 if (window.location.href.slice(window.location.href.length - 3) !== 'div')
     window.location.replace(window.location.href + "?#searchdiv");
 
+//selecting the search form
+const searchForm = document.querySelector('#searchForm');
+
+//selecting the div to display search results
+const searchDiv = document.querySelector('#searchdiv');
+
+//selecting the picture div to display the results
+const pictureDiv = document.querySelector('#picturediv');
+
 setTimeout(() => {
     window.scrollTo(0, 0);
 }, 100);
+
+document.querySelector("#homeTop").addEventListener('click', (e) => {
+    window.location.href = 'index.html';
+});
+
+document.querySelector("#latestRelTop").addEventListener('click', (e) => {
+    document.querySelector('#heading').scrollIntoView();
+});
+
+document.querySelector("#moviesTop").addEventListener('click', (e) => {
+    document.querySelector('#movies').scrollIntoView();
+});
 
 async function displaySearch(query) {
     try {
@@ -89,15 +110,6 @@ if (window.sessionStorage.getItem('welcome')) {
     alert(`Welcome, ${un}`);
     window.sessionStorage.removeItem('welcome');
 }
-
-//selecting the search form
-const searchForm = document.querySelector('#searchForm');
-
-//selecting the div to display search results
-const searchDiv = document.querySelector('#searchdiv');
-
-//selecting the picture div to display the results
-const pictureDiv = document.querySelector('#picturediv');
 
 window.addEventListener('click', function () {
     searchDiv.style.visibility = "hidden";
