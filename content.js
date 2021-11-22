@@ -1,9 +1,86 @@
 if (window.location.href.slice(window.location.href.length - 3) !== 'div')
     window.location.replace(window.location.href + "?#searchdiv");
 
+setTimeout(() => {
+    window.scrollTo(0, 0);
+}, 100);
+
+async function displaySearch(query) {
+    try {
+        //obtains the search results
+        const results = await getResultsBySearch(query);
+
+        //validating results object
+        if (results.status === 'error') {
+            throw 'Some error occurred';
+        } else if (results.status === 'empty') {
+            handleNullSearch();
+        } else if (results.status === 'fine') {
+            //displays the titles of searched movies in the list
+            for (let i = 0; i < results.res.length; i++) {
+                let res = results.res[i];
+                console.dir(res);
+                const topLevelDiv = document.createElement('div');
+                const imageSpan = document.createElement('span');
+                const image = document.createElement('img');
+                const contentDiv = document.createElement('div');
+                const headSpan = document.createElement('span');
+                const head = document.createElement('h2');
+                const typeSpan = document.createElement('span');
+
+                topLevelDiv.style.cursor = "pointer";
+                topLevelDiv.classList.add('searchListClass1');
+                topLevelDiv.style.paddingBottom = "0.5em";
+                imageSpan.style.display = "inline-block";
+                imageSpan.style.fontSize = "4rem";
+                imageSpan.style.height = "6rem";
+                image.style.height = "1.5em";
+                image.style.width = "1em";
+                if (res.Poster == 'N/A')
+                    image.src = "https://images.pexels.com/photos/754194/pexels-photo-754194.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+                else
+                    image.src = res.Poster;
+                contentDiv.style.display = "inline-block";
+                contentDiv.style.marginLeft = "0.5rem";
+                headSpan.style.display = "block";
+                if (res.Title.length <= 24)
+                    head.innerHTML = res.Title;
+                else
+                    head.innerHTML = res.Title.slice(0, 23) + '...';
+                head.style.fontSize = "1.5rem";
+                typeSpan.style.display = "block";
+                typeSpan.innerHTML = res.Type;
+                typeSpan.style.fontSize = "0.6rem";
+                typeSpan.style.color = "rgba(255, 255, 255, 0.33)";
+
+                topLevelDiv.append(imageSpan);
+                topLevelDiv.append(contentDiv);
+                imageSpan.append(image);
+                contentDiv.append(headSpan);
+                contentDiv.append(typeSpan);
+                headSpan.append(head);
+
+                topLevelDiv.addEventListener('click', async function () {
+                    await displayOnMainDisplayAreaBy(res.imdbID);
+                    searchDiv.style.visibility = 'hidden';
+                    searchDiv.innerHTML = '';
+                });
+
+                searchDiv.append(topLevelDiv);
+            }
+            searchDiv.style.visibility = 'visible';
+        } else {
+            throw 'Invalid status code';
+        }
+    } catch (e) {
+        handleNullSearch();
+        searchErrorHandler(e);
+    }
+}
+
 if (window.sessionStorage.getItem('searchQuery')) {
-    const origQuery = window.sessionStorage.getItem('searchQuery');
-    //TODO: display it in the flowing search result box
+    const query = window.sessionStorage.getItem('searchQuery');
+    displaySearch(query);
 }
 
 if (window.sessionStorage.getItem('welcome')) {

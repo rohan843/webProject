@@ -11,7 +11,12 @@ searchForm.addEventListener('submit', (e) => {
     myStorage.setItem('searchQuery', query);
     console.log(query);
     searchForm.elements.userQuery.value = '';
-    //TODO: make the query visible in the content page if the user is signed in, else it should redirect to sign in page
+    if (myStorage.getItem('un')) {
+        window.location.href = 'content.html?#searchdiv';
+    } else {
+        myStorage.setItem('welcome', 'true');
+        window.location.href = 'login.html';
+    }
 });
 
 signIn.addEventListener('click', (e) => {
@@ -28,6 +33,6 @@ getStarted.addEventListener('click', (e) => {
         myStorage.setItem('welcome', 'true');
         window.location.href = 'login.html';
     } else {
-        window.location.href = 'content.html';
+        window.location.href = 'content.html?#searchdiv';
     }
 });
