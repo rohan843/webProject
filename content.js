@@ -23,6 +23,7 @@ function searchErrorHandler(e) {
 
 //Handles errors if displaying goes wrong
 function displayErrorHandler(e) {
+    alert('An error occurred while displaying the content');
     console.log('A display error occurred', e);
 }
 
